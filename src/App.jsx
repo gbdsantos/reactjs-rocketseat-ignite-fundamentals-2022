@@ -8,27 +8,65 @@ import styles from './App.module.css';
 
 import './global.css';
 
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatar_url: 'https://github.com/gbdsantos.png',
+      name: 'Guilherme Bezerra',
+      role: 'Software Engineer'
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala pessoal 👋' },
+      { type: 'paragraph', content: 'Finalmente finalizei meu novo site/portfólio. Foi um baita desafio criar todo o design e codar na unha, mas consegui 💪🏻' },
+      { type: 'link', content: 'devonlane.design' },
+      { type: 'paragraph', content: 'Acesse e deixe seu feedback 👉' }
+    ],
+    publishedAt: new Date('2022-06-09 00:04:30')
+  },
+
+  {
+    id: 2,
+    author: {
+      avatar_url: 'https://github.com/diego3g.png',
+      name: 'Diego Fernandes',
+      role: 'Educator at @Rocketseat'
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala pessoal 👋' },
+      { type: 'paragraph', content: 'Finalmente finalizei meu novo site/portfólio. Foi um baita desafio criar todo o design e codar na unha, mas consegui 💪🏻' },
+      { type: 'link', content: 'devonlane.design' },
+      { type: 'paragraph', content: 'Acesse e deixe seu feedback 👉' }
+    ],
+    publishedAt: new Date('2022-06-10 20:10:42')
+  }
+];
+
 function App() {
-  const [count, setCount] = useState(0)
+  console.log(posts);
 
   return (
-    <>
+    <div>
       <Header />
 
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post
-            author="Guilherme Bezerra"
-            content="Lorem ipsum dolor sit amet ..."
-          />
-          <Post
-            author="Pedro Buzzi"
-            content="Lorem ipsum dolor sit amet ..."
-          />
+          {
+            posts.map(post => {
+              return (
+                <Post
+                  author={post.author}
+                  content={post.content}
+                  publishedAt={post.publishedAt}
+                />
+              )
+            })
+
+          }
         </main>
       </div>
-    </>
+    </div>
   )
 }
 
