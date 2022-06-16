@@ -8,3 +8,20 @@
   max-width: 70rem;
   padding: 0 1rem;
 }
+
+@media (max-width: 786px) {
+  html {
+    /**  
+    * :pencil: NOTE: Font size with dynamic proportion(rule of three) 
+    * 16 -> 100%
+    * 14 -> x
+    *
+    * 14 * 100 / 16 = 87.5%
+    **/
+    font-size: 87.5%;
+  }
+
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+}
